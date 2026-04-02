@@ -36,10 +36,13 @@ def _price_row(record: dict) -> str:
     high = record["daily_high"]
     low = record["daily_low"]
     change = record["session_change_pct"]
+    category = record.get("category", "dram")
+    source_url = ("https://www.trendforce.com/price/dram/dram_spot" if category == "dram"
+                  else "https://www.trendforce.com/price/flash/flash_spot")
 
     return (
         f'<tr>'
-        f'<td style="padding:8px; border-bottom:1px solid #eee;">{product}</td>'
+        f'<td style="padding:8px; border-bottom:1px solid #eee;"><a href="{source_url}" style="color:#2563eb; text-decoration:none;">{product}</a></td>'
         f'<td align="right" style="padding:8px; border-bottom:1px solid #eee; font-family:monospace;">{avg:.2f}</td>'
         f'<td align="right" style="padding:8px; border-bottom:1px solid #eee; font-family:monospace; color:#6c757d;">{low:.2f} – {high:.2f}</td>'
         f'{_change_cell(change)}'
