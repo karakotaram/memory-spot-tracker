@@ -102,9 +102,13 @@ function renderTable(data) {
         const arrow = r.session_change_pct > 0 ? '▲'
             : r.session_change_pct < 0 ? '▼' : '—';
 
+        const sourceUrl = r.category === 'dram'
+            ? 'https://www.trendforce.com/price/dram/dram_spot'
+            : 'https://www.trendforce.com/price/flash/flash_spot';
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${r.product}</td>
+            <td><a href="${sourceUrl}" target="_blank" class="source-link">${r.product}</a></td>
             <td class="num">${r.session_avg.toFixed(2)}</td>
             <td class="num">${r.daily_low.toFixed(2)}</td>
             <td class="num">${r.daily_high.toFixed(2)}</td>

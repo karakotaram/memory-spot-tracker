@@ -15,10 +15,10 @@ TEMPLATE_PATH = Path(__file__).parent / "templates" / "daily_report.html"
 def _change_cell(pct: float) -> str:
     """Format a change percentage with color coding."""
     if pct > 0:
-        color = "#dc3545"  # Red for price increase
+        color = "#28a745"  # Green for price increase
         arrow = "&#9650;"  # Up triangle
     elif pct < 0:
-        color = "#28a745"  # Green for price decrease
+        color = "#dc3545"  # Red for price decrease
         arrow = "&#9660;"  # Down triangle
     else:
         color = "#6c757d"  # Gray for no change
