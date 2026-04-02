@@ -2,8 +2,8 @@ name: Daily Memory Price Update
 
 on:
   schedule:
-    # Run at 12:00 UTC (20:00 GMT+8, after Asian markets close)
-    - cron: '0 12 * * 1-5'
+    # Run at 13:30 UTC (9:30 AM EDT / 10:30 AM EST)
+    - cron: '30 13 * * 1-5'
   workflow_dispatch:  # Manual trigger for testing
 
 permissions:
