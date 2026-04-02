@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Spot Price Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Memory Spot Price Tracker</h1>
+            <p class="subtitle" id="last-updated">Loading...</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tab active" data-category="dram">DRAM</button>
+            <button class="tab" data-category="nand">NAND Flash</button>
+        </div>
+
+        <!-- Current Prices Table -->
+        <section class="card">
+            <h2>Current Prices</h2>
+            <div class="table-wrapper">
+                <table id="price-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="num">Avg Price ($)</th>
+                            <th class="num">Daily Low</th>
+                            <th class="num">Daily High</th>
+                            <th class="num">Change</th>
+                        </tr>
+                    </thead>
+                    <tbody id="price-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Price Chart -->
+        <section class="card">
+            <div class="chart-header">
+                <h2>Price History</h2>
+                <div class="range-buttons">
+                    <button class="range-btn" data-days="30">1M</button>
+                    <button class="range-btn" data-days="90">3M</button>
+                    <button class="range-btn active" data-days="180">6M</button>
+                    <button class="range-btn" data-days="365">1Y</button>
+                    <button class="range-btn" data-days="0">All</button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="price-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- Normalized Chart -->
+        <section class="card">
+            <div class="chart-header">
+                <h2>Relative Performance (Base = 100)</h2>
+            </div>
+            <div class="chart-container">
+                <canvas id="normalized-chart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data sourced from <a href="https://www.trendforce.com" target="_blank">TrendForce</a>. Updated daily on business days.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

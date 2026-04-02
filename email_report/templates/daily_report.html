@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0; padding:0; background-color:#f5f5f5; font-family:Arial, Helvetica, sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; padding:20px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden;">
+
+<!-- Header -->
+<tr>
+<td style="background-color:#1a1a2e; padding:24px 30px;">
+  <h1 style="margin:0; color:#ffffff; font-size:20px; font-weight:600;">Memory Spot Price Update</h1>
+  <p style="margin:6px 0 0; color:#a0a0b0; font-size:13px;">{{date}} &middot; Source: TrendForce</p>
+</td>
+</tr>
+
+<!-- Summary -->
+<tr>
+<td style="padding:20px 30px 10px;">
+  <h2 style="margin:0 0 4px; color:#1a1a2e; font-size:16px; border-bottom:2px solid #e0e0e0; padding-bottom:8px;">DRAM Spot Prices</h2>
+</td>
+</tr>
+<tr>
+<td style="padding:0 30px;">
+  <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse:collapse; font-size:13px;">
+    <tr style="background-color:#f8f9fa;">
+      <th align="left" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Product</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Avg ($)</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Range ($)</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Change</th>
+    </tr>
+    {{dram_rows}}
+  </table>
+</td>
+</tr>
+
+<!-- NAND Section -->
+<tr>
+<td style="padding:20px 30px 10px;">
+  <h2 style="margin:0 0 4px; color:#1a1a2e; font-size:16px; border-bottom:2px solid #e0e0e0; padding-bottom:8px;">NAND Flash Spot Prices</h2>
+</td>
+</tr>
+<tr>
+<td style="padding:0 30px;">
+  <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse:collapse; font-size:13px;">
+    <tr style="background-color:#f8f9fa;">
+      <th align="left" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Product</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Avg ($)</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Range ($)</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Change</th>
+    </tr>
+    {{nand_rows}}
+  </table>
+</td>
+</tr>
+
+<!-- Footer -->
+<tr>
+<td style="padding:20px 30px; border-top:1px solid #e0e0e0; margin-top:20px;">
+  <p style="margin:0; color:#888; font-size:11px;">
+    Data sourced from TrendForce. Prices in USD.
+    <br>This is an automated report from the Memory Spot Price Tracker.
+  </p>
+</td>
+</tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
