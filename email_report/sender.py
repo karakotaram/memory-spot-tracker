@@ -3,13 +3,18 @@
 import logging
 import os
 import smtplib
+from datetime import datetime, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
+from scraper.stocks import fetch_week_returns
+
 logger = logging.getLogger(__name__)
 
 TEMPLATE_PATH = Path(__file__).parent / "templates" / "daily_report.html"
+
+EQUITY_TICKERS = ["MU", "EWY", "SNDK", "WDC", "STX"]
 
 
 def _change_cell(pct: float) -> str:
@@ -36,6 +41,7 @@ def _price_row(record: dict) -> str:
     high = record["daily_high"]
     low = record["daily_low"]
     change = record["session_change_pct"]
+    date = record.get("date", "—")
     category = record.get("category", "dram")
     source_url = ("https://www.trendforce.com/price/dram/dram_spot" if category == "dram"
                   else "https://www.trendforce.com/price/flash/flash_spot")
@@ -46,16 +52,32 @@ def _price_row(record: dict) -> str:
         f'<td align="right" style="padding:8px; border-bottom:1px solid #eee; font-family:monospace;">{avg:.2f}</td>'
         f'<td align="right" style="padding:8px; border-bottom:1px solid #eee; font-family:monospace; color:#6c757d;">{low:.2f} – {high:.2f}</td>'
         f'{_change_cell(change)}'
+        f'<td align="right" style="padding:8px; border-bottom:1px solid #eee; font-family:monospace; color:#6c757d;">{date}</td>'
         f'</tr>'
     )
 
 
-def _build_html(latest_data: dict) -> str:
+def _equity_row(s: dict) -> str:
+    """Generate an HTML table row for an equity 1W return."""
+    ticker = s["ticker"]
+    price = s["price"]
+    ret = s["return_1w"]
+    source_url = f"https://finance.yahoo.com/quote/{ticker}"
+
+    return (
+        f'<tr>'
+        f'<td style="padding:8px; border-bottom:1px solid #eee;"><a href="{source_url}" style="color:#2563eb; text-decoration:none; font-weight:600;">{ticker}</a></td>'
+        f'<td align="right" style="padding:8px; border-bottom:1px solid #eee; font-family:monospace;">{price:,.2f}</td>'
+        f'{_change_cell(ret)}'
+        f'</tr>'
+    )
+
+
+def _build_html(latest_data: dict, equities: list[dict]) -> str:
     """Build the email HTML from the template and latest data."""
     template = TEMPLATE_PATH.read_text()
 
     records = latest_data.get("records", [])
-    date = latest_data.get("last_updated", "Unknown")
 
     dram_records = [r for r in records if r["category"] == "dram"]
     nand_records = [r for r in records if r["category"] == "nand"]
@@ -63,9 +85,23 @@ def _build_html(latest_data: dict) -> str:
     dram_rows = "\n".join(_price_row(r) for r in dram_records)
     nand_rows = "\n".join(_price_row(r) for r in nand_records)
 
-    html = template.replace("{{date}}", date)
+    if equities:
+        equity_rows = "\n".join(_equity_row(e) for e in equities)
+        equities_as_of = max(e["as_of"] for e in equities)
+    else:
+        equity_rows = (
+            '<tr><td colspan="3" style="padding:8px; color:#6c757d; font-style:italic;">'
+            'Equity data unavailable.</td></tr>'
+        )
+        equities_as_of = "Unknown"
+
+    report_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    html = template.replace("{{report_date}}", report_date)
     html = html.replace("{{dram_rows}}", dram_rows)
     html = html.replace("{{nand_rows}}", nand_rows)
+    html = html.replace("{{equity_rows}}", equity_rows)
+    html = html.replace("{{equities_as_of}}", equities_as_of)
 
     return html
 
@@ -78,23 +114,29 @@ def send_daily_report(latest_data: dict, recipients: list[str]):
     if not gmail_user or not gmail_password:
         raise ValueError("GMAIL_USER and GMAIL_APP_PASSWORD env vars must be set")
 
-    date = latest_data.get("last_updated", "Unknown")
-    html = _build_html(latest_data)
+    report_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    equities = fetch_week_returns(EQUITY_TICKERS)
+    html = _build_html(latest_data, equities)
 
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"Memory Spot Prices – {date}"
+    msg["Subject"] = f"Memory Spot Prices – {report_date}"
     msg["From"] = gmail_user
     msg["To"] = ", ".join(recipients)
 
     # Plain text fallback
     records = latest_data.get("records", [])
-    plain_lines = [f"Memory Spot Price Update – {date}", ""]
+    plain_lines = [f"Memory Spot Price Update – Report generated {report_date}", ""]
     for r in records:
         plain_lines.append(
-            f"{r['product']:35s}  avg: ${r['session_avg']:.2f}  chg: {r['session_change_pct']:+.2f}%"
+            f"{r['product']:35s}  avg: ${r['session_avg']:.2f}  chg: {r['session_change_pct']:+.2f}%  (updated {r.get('date', '—')})"
         )
     plain_lines.append("")
-    plain_lines.append("Source: TrendForce")
+    if equities:
+        plain_lines.append(f"Memory Equities – 1W Total Return (as of {max(e['as_of'] for e in equities)}):")
+        for e in equities:
+            plain_lines.append(f"  {e['ticker']:6s}  ${e['price']:,.2f}  {e['return_1w']:+.2f}%")
+        plain_lines.append("")
+    plain_lines.append("Sources: TrendForce, Yahoo Finance")
     plain_text = "\n".join(plain_lines)
 
     msg.attach(MIMEText(plain_text, "plain"))

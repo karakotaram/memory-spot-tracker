@@ -13,7 +13,7 @@
 <tr>
 <td style="background-color:#1a1a2e; padding:24px 30px;">
   <h1 style="margin:0; color:#ffffff; font-size:20px; font-weight:600;">Memory Spot Price Update</h1>
-  <p style="margin:6px 0 0; color:#a0a0b0; font-size:13px;">{{date}} &middot; Source: TrendForce</p>
+  <p style="margin:6px 0 0; color:#a0a0b0; font-size:13px;">Report generated {{report_date}} &middot; Source: TrendForce</p>
 </td>
 </tr>
 
@@ -31,6 +31,7 @@
       <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Avg ($)</th>
       <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Range ($)</th>
       <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Change</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Last Updated</th>
     </tr>
     {{dram_rows}}
   </table>
@@ -51,8 +52,29 @@
       <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Avg ($)</th>
       <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Range ($)</th>
       <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Change</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Last Updated</th>
     </tr>
     {{nand_rows}}
+  </table>
+</td>
+</tr>
+
+<!-- Equities Section -->
+<tr>
+<td style="padding:20px 30px 10px;">
+  <h2 style="margin:0 0 4px; color:#1a1a2e; font-size:16px; border-bottom:2px solid #e0e0e0; padding-bottom:8px;">Memory Equities &mdash; 1W Total Return</h2>
+  <p style="margin:6px 0 0; color:#6c757d; font-size:11px;">As of {{equities_as_of}} &middot; Source: Yahoo Finance</p>
+</td>
+</tr>
+<tr>
+<td style="padding:0 30px;">
+  <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse:collapse; font-size:13px;">
+    <tr style="background-color:#f8f9fa;">
+      <th align="left" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Ticker</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">Price ($)</th>
+      <th align="right" style="padding:8px; border-bottom:1px solid #dee2e6; color:#495057;">1W Total Return</th>
+    </tr>
+    {{equity_rows}}
   </table>
 </td>
 </tr>
@@ -61,7 +83,7 @@
 <tr>
 <td style="padding:20px 30px; border-top:1px solid #e0e0e0; margin-top:20px;">
   <p style="margin:0; color:#888; font-size:11px;">
-    Data sourced from TrendForce. Prices in USD.
+    Memory prices sourced from TrendForce. Equity prices from Yahoo Finance. Prices in USD.
     <br>This is an automated report from the Memory Spot Price Tracker.
   </p>
 </td>
