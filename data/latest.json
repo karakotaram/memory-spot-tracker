@@ -1,18 +1,18 @@
 {
-  "last_updated": "2026-05-22",
+  "last_updated": "2026-05-25",
   "records": [
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR5 16Gb (2Gx8) 4800/5600",
       "category": "dram",
       "daily_high": 52.5,
       "daily_low": 30.5,
-      "session_avg": 41.5,
+      "session_avg": 41.667,
       "session_change_pct": 0.4,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR5 16Gb (2Gx8) eTT",
       "category": "dram",
       "daily_high": 24.8,
@@ -22,17 +22,17 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR4 16Gb (2Gx8) 3200",
       "category": "dram",
       "daily_high": 70.5,
       "daily_low": 33.8,
-      "session_avg": 60.857,
-      "session_change_pct": 1.19,
+      "session_avg": 61.095,
+      "session_change_pct": 0.39,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR4 16Gb (2Gx8) eTT",
       "category": "dram",
       "daily_high": 13.0,
@@ -42,17 +42,17 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR4 8Gb (1Gx8) 3200",
       "category": "dram",
       "daily_high": 53.5,
       "daily_low": 16.5,
-      "session_avg": 33.3,
-      "session_change_pct": 1.22,
+      "session_avg": 33.5,
+      "session_change_pct": 0.6,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR4 8Gb (1Gx8) eTT",
       "category": "dram",
       "daily_high": 5.4,
@@ -62,67 +62,67 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-25",
       "product": "DDR3 4Gb 512Mx8 1600/1866",
       "category": "dram",
       "daily_high": 11.5,
       "daily_low": 5.5,
       "session_avg": 9.163,
-      "session_change_pct": 0.83,
+      "session_change_pct": 0.0,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "SLC 2Gb 256MBx8",
       "category": "nand",
-      "daily_high": 4.5,
-      "daily_low": 3.0,
-      "session_avg": 3.725,
-      "session_change_pct": -0.67,
+      "daily_high": 4.6,
+      "daily_low": 3.1,
+      "session_avg": 3.775,
+      "session_change_pct": 1.34,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "SLC 1Gb 128MBx8",
       "category": "nand",
       "daily_high": 3.8,
-      "daily_low": 3.0,
-      "session_avg": 3.425,
-      "session_change_pct": -0.73,
+      "daily_low": 3.2,
+      "session_avg": 3.5,
+      "session_change_pct": 2.19,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "MLC 64Gb 8GBx8",
       "category": "nand",
-      "daily_high": 32.0,
-      "daily_low": 16.0,
-      "session_avg": 20.295,
-      "session_change_pct": 3.41,
+      "daily_high": 34.0,
+      "daily_low": 18.0,
+      "session_avg": 21.682,
+      "session_change_pct": 6.83,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "MLC 32Gb 4GBx8",
       "category": "nand",
-      "daily_high": 12.3,
-      "daily_low": 10.2,
-      "session_avg": 10.7,
-      "session_change_pct": 2.23,
+      "daily_high": 12.5,
+      "daily_low": 10.7,
+      "session_avg": 11.267,
+      "session_change_pct": 5.3,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "512Gb TLC",
       "category": "nand",
-      "daily_high": 21.5,
+      "daily_high": 22.0,
       "daily_low": 16.0,
-      "session_avg": 20.541,
-      "session_change_pct": 0.34,
+      "session_avg": 20.707,
+      "session_change_pct": 0.81,
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "256Gb TLC",
       "category": "nand",
       "daily_high": 11.5,
@@ -132,7 +132,7 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-05-11",
+      "date": "2026-05-18",
       "product": "128Gb TLC",
       "category": "nand",
       "daily_high": 9.0,
