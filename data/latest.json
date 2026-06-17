@@ -1,48 +1,48 @@
 {
-  "last_updated": "2026-06-16",
+  "last_updated": "2026-06-17",
   "records": [
     {
-      "date": "2026-06-16",
+      "date": "2026-06-17",
       "product": "DDR5 16Gb (2Gx8) 4800/5600",
       "category": "dram",
-      "daily_high": 57.0,
+      "daily_high": 58.0,
       "daily_low": 30.5,
-      "session_avg": 45.233,
-      "session_change_pct": 0.52,
+      "session_avg": 45.4,
+      "session_change_pct": 0.37,
       "source": "trendforce"
     },
     {
-      "date": "2026-06-16",
+      "date": "2026-06-17",
       "product": "DDR5 16Gb (2Gx8) eTT",
       "category": "dram",
       "daily_high": 25.0,
       "daily_low": 22.0,
       "session_avg": 23.2,
-      "session_change_pct": 0.87,
-      "source": "trendforce"
-    },
-    {
-      "date": "2026-06-16",
-      "product": "DDR4 16Gb (2Gx8) 3200",
-      "category": "dram",
-      "daily_high": 80.0,
-      "daily_low": 37.5,
-      "session_avg": 68.125,
-      "session_change_pct": 0.93,
-      "source": "trendforce"
-    },
-    {
-      "date": "2026-06-16",
-      "product": "DDR4 16Gb (2Gx8) eTT",
-      "category": "dram",
-      "daily_high": 12.3,
-      "daily_low": 10.5,
-      "session_avg": 11.975,
       "session_change_pct": 0.0,
       "source": "trendforce"
     },
     {
-      "date": "2026-06-16",
+      "date": "2026-06-17",
+      "product": "DDR4 16Gb (2Gx8) 3200",
+      "category": "dram",
+      "daily_high": 80.0,
+      "daily_low": 37.5,
+      "session_avg": 68.5,
+      "session_change_pct": 0.55,
+      "source": "trendforce"
+    },
+    {
+      "date": "2026-06-17",
+      "product": "DDR4 16Gb (2Gx8) eTT",
+      "category": "dram",
+      "daily_high": 12.3,
+      "daily_low": 10.5,
+      "session_avg": 11.875,
+      "session_change_pct": -0.84,
+      "source": "trendforce"
+    },
+    {
+      "date": "2026-06-17",
       "product": "DDR4 8Gb (1Gx8) 3200",
       "category": "dram",
       "daily_high": 56.0,
@@ -52,23 +52,23 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-06-16",
+      "date": "2026-06-17",
       "product": "DDR4 8Gb (1Gx8) eTT",
       "category": "dram",
       "daily_high": 5.1,
       "daily_low": 3.9,
-      "session_avg": 4.519,
-      "session_change_pct": -1.76,
+      "session_avg": 4.476,
+      "session_change_pct": -0.95,
       "source": "trendforce"
     },
     {
-      "date": "2026-06-16",
+      "date": "2026-06-17",
       "product": "DDR3 4Gb 512Mx8 1600/1866",
       "category": "dram",
       "daily_high": 16.0,
       "daily_low": 6.3,
-      "session_avg": 10.857,
-      "session_change_pct": 1.06,
+      "session_avg": 10.952,
+      "session_change_pct": 0.88,
       "source": "trendforce"
     },
     {
