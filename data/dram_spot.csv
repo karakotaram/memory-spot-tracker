@@ -496,3 +496,10 @@ date,product,category,daily_high,daily_low,session_avg,session_change_pct,source
 2026-07-10,DDR4 8Gb (1Gx8) 3200,dram,64.0000,19.7000,37.8000,1.07,trendforce
 2026-07-10,DDR4 8Gb (1Gx8) eTT,dram,4.4000,3.9000,4.2140,0.33,trendforce
 2026-07-10,DDR3 4Gb 512Mx8 1600/1866,dram,17.5000,8.6000,12.9250,0.39,trendforce
+2026-07-13,DDR5 16Gb (2Gx8) 4800/5600,dram,64.0000,31.8000,48.3330,1.12,trendforce
+2026-07-13,DDR5 16Gb (2Gx8) eTT,dram,26.0000,22.6000,23.6000,0.00,trendforce
+2026-07-13,DDR4 16Gb (2Gx8) 3200,dram,98.0000,39.4000,78.1250,0.64,trendforce
+2026-07-13,DDR4 16Gb (2Gx8) eTT,dram,12.0000,10.3000,11.5000,0.00,trendforce
+2026-07-13,DDR4 8Gb (1Gx8) 3200,dram,65.0000,19.8000,38.5000,1.85,trendforce
+2026-07-13,DDR4 8Gb (1Gx8) eTT,dram,4.4500,3.9500,4.2140,0.00,trendforce
+2026-07-13,DDR3 4Gb 512Mx8 1600/1866,dram,17.8000,8.8000,12.9500,0.19,trendforce
