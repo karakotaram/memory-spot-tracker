@@ -1,18 +1,18 @@
 {
-  "last_updated": "2026-07-21",
+  "last_updated": "2026-07-22",
   "records": [
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR5 16Gb (2Gx8) 4800/5600",
       "category": "dram",
-      "daily_high": 65.0,
+      "daily_high": 65.5,
       "daily_low": 32.5,
-      "session_avg": 50.067,
-      "session_change_pct": 0.6,
+      "session_avg": 50.333,
+      "session_change_pct": 0.53,
       "source": "trendforce"
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR5 16Gb (2Gx8) eTT",
       "category": "dram",
       "daily_high": 26.0,
@@ -22,17 +22,17 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR4 16Gb (2Gx8) 3200",
       "category": "dram",
       "daily_high": 100.0,
       "daily_low": 40.1,
-      "session_avg": 81.2,
-      "session_change_pct": 0.93,
+      "session_avg": 81.25,
+      "session_change_pct": 0.06,
       "source": "trendforce"
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR4 16Gb (2Gx8) eTT",
       "category": "dram",
       "daily_high": 11.95,
@@ -42,17 +42,17 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR4 8Gb (1Gx8) 3200",
       "category": "dram",
-      "daily_high": 72.0,
+      "daily_high": 73.0,
       "daily_low": 20.05,
-      "session_avg": 41.1,
-      "session_change_pct": 0.74,
+      "session_avg": 41.5,
+      "session_change_pct": 0.97,
       "source": "trendforce"
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR4 8Gb (1Gx8) eTT",
       "category": "dram",
       "daily_high": 4.45,
@@ -62,13 +62,13 @@
       "source": "trendforce"
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "product": "DDR3 4Gb 512Mx8 1600/1866",
       "category": "dram",
-      "daily_high": 18.0,
+      "daily_high": 18.5,
       "daily_low": 8.8,
-      "session_avg": 13.175,
-      "session_change_pct": 0.0,
+      "session_avg": 13.25,
+      "session_change_pct": 0.57,
       "source": "trendforce"
     },
     {
