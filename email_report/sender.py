@@ -4,6 +4,7 @@ import logging
 import os
 import smtplib
 from datetime import datetime, timezone
+from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -73,7 +74,18 @@ def _equity_row(s: dict) -> str:
     )
 
 
-def _build_html(latest_data: dict, equities: list[dict]) -> str:
+def _chart_img(cid: str, alt: str, available: set) -> str:
+    """Inline <img> referencing an attached chart, or empty string if unavailable."""
+    if cid not in available:
+        return ""
+    return (
+        f'<img src="cid:{cid}" width="540" alt="{alt}" '
+        f'style="display:block; width:100%; max-width:540px; height:auto; '
+        f'margin:4px 0 14px; border:1px solid #eee; border-radius:6px;">'
+    )
+
+
+def _build_html(latest_data: dict, equities: list[dict], chart_cids: set) -> str:
     """Build the email HTML from the template and latest data."""
     template = TEMPLATE_PATH.read_text()
 
@@ -98,6 +110,8 @@ def _build_html(latest_data: dict, equities: list[dict]) -> str:
     report_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     html = template.replace("{{report_date}}", report_date)
+    html = html.replace("{{dram_chart}}", _chart_img("dram_chart", "DRAM YTD relative performance", chart_cids))
+    html = html.replace("{{nand_chart}}", _chart_img("nand_chart", "NAND YTD relative performance", chart_cids))
     html = html.replace("{{dram_rows}}", dram_rows)
     html = html.replace("{{nand_rows}}", nand_rows)
     html = html.replace("{{equity_rows}}", equity_rows)
@@ -116,12 +130,25 @@ def send_daily_report(latest_data: dict, recipients: list[str]):
 
     report_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     equities = fetch_week_returns(EQUITY_TICKERS)
-    html = _build_html(latest_data, equities)
 
-    msg = MIMEMultipart("alternative")
+    # YTD indexed charts (PNG). Never fatal — the email still sends with tables if this fails.
+    try:
+        from email_report.charts import generate_ytd_charts
+
+        charts = generate_ytd_charts()
+    except Exception as e:  # noqa: BLE001
+        logger.warning(f"Chart generation unavailable, sending tables only: {e}")
+        charts = {}
+
+    html = _build_html(latest_data, equities, set(charts.keys()))
+
+    # "related" wraps the "alternative" body plus the inline chart images (cid: refs).
+    msg = MIMEMultipart("related")
     msg["Subject"] = f"Memory Spot Prices – {report_date}"
     msg["From"] = gmail_user
     msg["To"] = ", ".join(recipients)
+
+    body = MIMEMultipart("alternative")
 
     # Plain text fallback
     records = latest_data.get("records", [])
@@ -139,8 +166,15 @@ def send_daily_report(latest_data: dict, recipients: list[str]):
     plain_lines.append("Sources: TrendForce, Yahoo Finance")
     plain_text = "\n".join(plain_lines)
 
-    msg.attach(MIMEText(plain_text, "plain"))
-    msg.attach(MIMEText(html, "html"))
+    body.attach(MIMEText(plain_text, "plain"))
+    body.attach(MIMEText(html, "html"))
+    msg.attach(body)
+
+    for cid, png in charts.items():
+        img = MIMEImage(png, _subtype="png")
+        img.add_header("Content-ID", f"<{cid}>")
+        img.add_header("Content-Disposition", "inline", filename=f"{cid}.png")
+        msg.attach(img)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(gmail_user, gmail_password)
