@@ -35,6 +35,7 @@
                             <th class="num">Daily Low</th>
                             <th class="num">Daily High</th>
                             <th class="num">Change</th>
+                            <th class="num">YTD</th>
                         </tr>
                     </thead>
                     <tbody id="price-tbody"></tbody>
@@ -47,11 +48,12 @@
             <div class="chart-header">
                 <h2>Price History</h2>
                 <div class="range-buttons">
-                    <button class="range-btn" data-days="30">1M</button>
-                    <button class="range-btn" data-days="90">3M</button>
-                    <button class="range-btn active" data-days="180">6M</button>
-                    <button class="range-btn" data-days="365">1Y</button>
-                    <button class="range-btn" data-days="0">All</button>
+                    <button class="range-btn active" data-range="ytd">YTD</button>
+                    <button class="range-btn" data-range="30">1M</button>
+                    <button class="range-btn" data-range="90">3M</button>
+                    <button class="range-btn" data-range="180">6M</button>
+                    <button class="range-btn" data-range="365">1Y</button>
+                    <button class="range-btn" data-range="0">All</button>
                 </div>
             </div>
             <div class="chart-container">
