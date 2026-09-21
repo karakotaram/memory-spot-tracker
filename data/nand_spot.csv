@@ -188,3 +188,10 @@ date,product,category,daily_high,daily_low,session_avg,session_change_pct,source
 2026-09-07,512Gb TLC,nand,22.5000,17.5000,20.1460,-2.71,trendforce
 2026-09-07,256Gb TLC,nand,19.0000,14.0000,16.8080,0.00,trendforce
 2026-09-07,128Gb TLC,nand,15.0000,8.0000,9.9670,0.00,trendforce
+2026-09-14,SLC 2Gb 256MBx8,nand,4.5500,4.1600,4.3230,0.23,trendforce
+2026-09-14,SLC 1Gb 128MBx8,nand,3.6500,2.9000,3.3580,-1.24,trendforce
+2026-09-14,MLC 64Gb 8GBx8,nand,53.5000,34.0000,39.9130,1.69,trendforce
+2026-09-14,MLC 32Gb 4GBx8,nand,21.0000,18.5000,19.0330,0.50,trendforce
+2026-09-14,512Gb TLC,nand,22.0000,17.5000,20.0830,-0.31,trendforce
+2026-09-14,256Gb TLC,nand,19.0000,14.0000,16.8080,0.00,trendforce
+2026-09-14,128Gb TLC,nand,15.0000,8.0000,9.9670,0.00,trendforce
